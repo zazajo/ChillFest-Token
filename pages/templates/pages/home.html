@@ -1,0 +1,275 @@
+<!-- pages/templates/pages/home.html -->
+<style>
+    .nav-link{
+        margin-left: 40px;
+    }
+    #navbarNav{
+        margin-left: 150px;
+
+    }
+    nav{
+       height: 80px;
+       width: 100%;
+    }
+    #rc{
+        margin-top: 70px;
+        margin-left: 70px;
+    }
+
+    .zoom-image {
+      transition: transform 0.3s ease; /* Transition for scaling */
+    }
+
+    .zoom-image:hover {
+      transform: scale(1.1); /* Slightly enlarge the image */
+    }
+
+    .buy-button {
+  position: relative;
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  background-color: #1d72b8;
+  color: #fff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.8); /* glowing effect */
+  outline: none;
+}
+
+.buy-button:hover {
+  background-color: rgb(235, 206, 152);
+  transform: scale(1.1); /* Slightly enlarge the button */
+  box-shadow: 0 0 40px rgb(235, 206, 152); /* Stronger glow on hover */
+}
+
+.buy-button:active {
+  transform: scale(1); /* Reset scale on click */
+  box-shadow: 0 0 15px rgb(235, 206, 152); /* Dim glow on click */
+}
+
+#dd{
+    margin-top: 80px;
+}
+
+#top, #bottom {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 10px; /* Space between the divs */
+}
+
+.horizontal {
+  list-style-type: none; /* Removes bullet points */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+}
+
+.horizontal li {
+  display: inline-block; /* Makes list items appear horizontally */
+  margin-right: 10px; /* Optional: Adds space between items */
+}
+
+
+</style>
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+   <!-- Image and text -->
+<nav class="navbar navbar-expand-lg navbar-dark w-100" style="background-color: #000;">
+    <a class="navbar-brand" href="#"> <img src="{% static 'images/cf3.png' %}" width="300" height="70" class="d-inline-block align-top ms-5" alt="">
+        </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link fs-5 ms-0" href="">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5" href="#">Official Links</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5" href="#">Buy $CHFEST</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5" href="#">Disabled</a>
+        </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="nnavbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active ms-3">
+            <a class="navbar-brand " href="#"> <img class="zoom-image" src="data:image/png;base64,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" width="30" height="30" class="d-inline-block align-top" alt="">
+                </a>
+          </li>
+          <li class="nav-item">
+            <a class="navbar-brand ms-3" href="#"> <img class="zoom-image" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUQEA8VDxUVFRUVFRUVFRcVFRUSFRUXFhUVFRUYHyggGBslHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAAAQIGBwgFBAP/xABBEAABAwICBwQHBgQFBQAAAAABAAIDBBEFIQYHEhMxQVEiYXGBFDJCYnKRoQgjQ1KColOxs8EkM5Lh8HODk6Oy/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AN4EqAFNlKAiIgIoupQRZSiICIoKCCVICAKUBERAVSrIggBSiICglCosgKwQBEBERBBUAKyICIiAiIgIiICqShKAIACsiICIqkoLIoClAREQLqqKQEEoiICKCVAKCyIiAiKCUAlAVACsgIiICKLqUBERAUFSiCoCsiICIqlAJUgIApQEREBVVioAQAFKIgKCUJUBACsAiICIiCCVASysgIiICqShKAIACsiICIiCApREBEUXQSospRAREKAVAKhSAglERARRdSgghSiICIvNxzH6WjZvKuojp28tt1i63JrfWce4AoPSuqSyNaC5zg1oFySbADqSeC0vpTr3jbdmHU5lP8We7WeLYwdo+Zb4LUekel9dXm9XVPlF7hl9mMdLRts3ztdB0FpLrkw2lJZE91c8ZWhtuwbXzlPZI727SxvDtf8AE59qjD3xMv60cokcB1LC1t/mtE08D5HBkbHSOcbNa0FziegAzKvW0ckL3RTMMb2mzmOFnNNr2I5HuQdoYRikNVCyop5BLFILtcOY4EEHMEG4IOYIIX1laZ+zVXvdDWU5N2RvhewdHSiQPt3fdN+ZW50FQFZEQERVJQWRURBdEVSUAlSAgClAREQCVVCpAQAFKIgKCUJUICsvwrKuOFhkmkZExubnvcGtA73HILWelOu6ip7so2OrpBltD7uEH4yLu8hY9UG01iGlGsnDaG7ZagSyD8GG0j79HWOyw/EQue9KtZeJV92yVBhiP4UN42EdHEHaeM+DiR3L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" width="30" height="30" class="d-inline-block align-top" alt="">
+                </a>
+          </li>
+        </ul>
+    </div>
+</nav>
+<div style="background-color: rgb(235, 229, 229); width: 100%; height: 600px;">
+<div class="d-flex align-items-center" style="font-family: 'poppins', sans-serif; line-height: 2;">
+    <img src="{% static 'images/CHILL_FEST.png' %}" class="rounded-circle w-40 h-75 img-fluid zoom-image" id="rc" alt="">
+    <p class="mb-0 ms-5 fs-3 mt-5" style="font-weight: bold;">Chillfest Token ($CHFEST) is a fun, community-driven token inspired by the Chill Guy meme and the festive Christmas spirit. It embodies the laid-back vibes of the holidays, spreading joy and relaxation in the crypto world. Perfect for adding a little holiday cheer to your collection!</p>
+</div>
+</div>
+<div style="background: white; width: 100%; height: 150px; border: 1px solid black;" class="d-flex justify-content-center align-items-center">
+    <p class="text-center">ChillFest Token, Coming Soon!</p>
+</div>
+
+    <div  style="background-color: rgb(235, 206, 152); width: 100%; height: 400px; ">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-center fs-2" ><p class="text-center" style=" font-weight: bold;  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  " id="dd">
+        Embrace the holiday vibes with a Chillfest Token – the perfect way to spread some chill and festive cheer this season. Grab yours now and join the fun!
+    </p>
+</div>
+<div class="d-flex align-items-center justify-content-center">
+    <p class="fs-5">
+        Get your Chillfest Token today and enjoy exclusive perks while celebrating the most chill season of the year. Don't miss out!
+    </p>
+</div>
+    <div class="d-flex align-items-center justify-content-center">
+        <button style="width: 180px; height: 50px;" class="btn btn-primary buy-button text-center "><strong>BUY $CHFEST</strong></button>
+
+    </div>
+</div>
+    
+
+</div>
+
+<div style="background-color: rgb(235, 229, 229); width: 100%; height: 400px;" >
+    <div class="container justify-content-center" style="background-color: rgb(235, 229, 229); width: 100%; ">
+        <div style="background-color: rgb(235, 229, 229);" class="top" id="top">
+            <p class="text-center" style="font-weight: bold; font-size: xxx-large; margin-top: 40px;">How To Buy</p>
+        </div>
+        
+        <div style="background-color: rgb(235, 229, 229);" id="bottom" class="carousel slide" data-bs-ride="carousel">
+            <div style="background-color: rgb(235, 229, 229);" class="carousel-inner">
+              <div style="background-color: rgb(235, 229, 229);" class="container justify-content-center align-items-center carousel-item active">
+                <p class="text-center fs-2" style="font-weight: bold; color: orange;">
+                    Step ONE: Create Wallet
+                </p>
+                <p class="text-center fs-5">
+                    Download a wallet app such as Phantom <a style="text-decoration: none;" href="https://phantom.app/">https://phantom.app/</a> or Solfare and complete the setup process. For the best experience, we suggest installing it via a browser extension on your PC.
+                </p>
+              </div>
+              <div style="background-color: rgb(235, 229, 229);" class="container justify-content-center align-items-center carousel-item">
+                <p class="text-center fs-2" style="font-weight: bold; color: orange;">
+                    Step TWO: Get $SOL (Solana)
+                </p>
+                <p class="text-center fs-5">
+                    You can acquire Solana by purchasing it directly through Phantom (credit card) or transferring it from another wallet or buying it on a CEX like Binance, Bitpanda or Coinbase and then transferring it to your wallet.
+                </p>
+              </div>
+              <div style="background-color: rgb(235, 229, 229);" class="container justify-content-center align-items-center carousel-item">
+                <p class="text-center fs-2" style="font-weight: bold; color: orange;">
+                    Step THREE: Swap $SOL for $CHFEST
+                </p>
+                <p class="text-center fs-5">
+                    Tap the swap icon in your Phantom wallet, enter the $CHFEST token address:                 (or click the buy button) and swap $SOL for $CHFEST.
+                </p>
+              </div>
+              <div style="background-color: rgb(235, 229, 229);" class="container justify-content-center align-items-center carousel-item">
+                <p class="text-center fs-2" style="font-weight: bold; color: orange;">
+                    Step FOUR: Yay, you now have $CHFEST
+                </p>
+                <p class="text-center fs-5">
+                    Congrats, you're now officially a Chill Guy! Welcome to the Chillfest family—your journey of good vibes and exclusive perks has just begun!
+                </p>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </a>
+          </div>
+    </div>
+    
+</div>
+
+<div class="container" style="height: 650px; width: 100%;">
+
+    <p class="text-center fs-2" style="font-weight: bold; color: orange; margin-top: 50px;">
+        Chillfest brings together fun, relaxation, and good vibes to celebrate the coolest moments of the season!
+    </p>
+    <p class="text-center fs-5">
+        Chillfest is all about good vibes, relaxation, and celebrating the best moments with friends. We bring together fun, festive energy, and a laid-back atmosphere to create unforgettable memories. Join us for a season of laughter, connection, and pure enjoyment—because at Chillfest, it’s all about enjoying the moment!
+    </p>
+    <img src="{% static 'images/cf2.png' %}" style="margin-top: 50px; margin-left: 50px; width: 1000px;" alt="">
+    <button style="width: 180px; height: 50px; margin-left: 470px;" class="btn btn-primary buy-button text-center "><strong>BUY $CHFEST</strong></button>
+
+</div>
+
+<div class="container-fluid" style="height: 300px; width: 100%; background-color: aqua;">
+ <div class="d-flex justify-content-center align-items-center">
+        <p class="text-center fs-4" style="font-weight: bold; margin-top: 60px;">
+        Follow us on social media for the latest events, updates, and news!
+    </p>
+  </div>
+ <div class="d-flex justify-content-center align-items-center">
+    <ul class="horizontal text-center mt-5" style="list-style: none;">
+        <li> <a href=""><img class="rounded-circle zoom-image" src="https://cdn.prod.website-files.com/5d66bdc65e51a0d114d15891/64cebc6c19c2fe31de94c78e_X-vector-logo-download.png" style="height: 60px; width: 60px;" alt="">
+        </a>
+        </li>
+        <li class="ms-2">
+            <a href=""><img class="rounded-circle zoom-image" src="https://i.pinimg.com/564x/a4/9f/01/a49f013a7def6bcc40bd3ae2c8a9833e.jpg" style="height: 60px; width: 60px;" alt="">
+            </a>
+        </li>
+    </ul>
+ </div>
+    
+
+</div>
+
+<footer>
+    <div style="background-color: rgb(235, 229, 229); height: 320px; width: 100%;" class=" justify-content-center align-items-center">
+       <div style="background-color: rgb(235, 229, 229);">
+        <div style="padding-top: 50px;">
+            <p class="text-center fs-1" style="font-weight: bold; margin-bottom: 0.5rem;">
+            ChillFest Token
+        </p>
+        </div>
+        
+        <p class="text-center" style="line-height: 0.5; margin-top: 0;">
+            A Non-Profit NGO memecoin
+        </p>
+       </div>
+       <div style="padding-top: 20px;" class=" justify-content-center align-items-center">
+        <h6 class="text-center" style="font-weight: bold;">Contract Address:</h6>
+        <p>
+
+        </p>
+
+       </div>
+       <div style="padding-top: 20px;" class=" justify-content-center align-items-center">
+        <h6 class="text-center" style="font-weight: bold;">
+            Contact Us:
+
+        </h6>
+        <p>
+
+        </p>
+
+       </div>
+        
+
+    </div>
+
+</footer>
+
+
+
+
+{% endblock page_content %}
